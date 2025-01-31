@@ -18,13 +18,12 @@
             margin-bottom: 20px;
         }
 
-        /* Grid Container for Fixed 4 Columns */
         .subscriptions-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
-            gap: 20px; /* Space between cards */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
             justify-content: center;
-            padding: 0 10px; /* Add padding around the grid */
+            padding: 0 10px; 
         }
 
         /* Card Styling */
@@ -41,8 +40,8 @@
         }
 
         .subscription-card:hover {
-            transform: translateY(-5px); /* Slight hover lift */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
         }
 
         .subscription-card img {
@@ -61,7 +60,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            width: 100%; /* Full width for the list */
+            width: 100%; 
         }
 
         .plans li {
@@ -88,16 +87,15 @@
             background-color: #e4e4e4;
         }
 
-        /* Responsive Design for Small Screens */
         @media (max-width: 1024px) {
             .subscriptions-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 cards per row on smaller screens */
+                grid-template-columns: repeat(2, 1fr); 
             }
         }
 
         @media (max-width: 768px) {
             .subscriptions-container {
-                grid-template-columns: 1fr; /* 1 card per row on very small screens */
+                grid-template-columns: 1fr; 
             }
         }
     </style>
