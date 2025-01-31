@@ -1,0 +1,492 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+.sidebar {
+    position: fixed; /* Make the sidebar fixed to the viewport */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height of the viewport */
+    width: 80px; /* Default width when closed */
+    background-color: navy;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.5s ease;
+    overflow: hidden; /* Prevent content overflow */
+    z-index: 1000; /* Ensure the sidebar stays above other elements */
+}
+
+.sidebar.active {
+    width: 250px; /* Expanded width */
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column; 
+    gap: 5px; 
+    cursor: pointer; 
+    margin-bottom: 5px; 
+    transition: all 0.3s ease; 
+}
+
+.logo .user-img {
+    width: 50%;
+    height: auto;
+    transition: width 0.3s ease; 
+}
+.separator {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 0, 100, 0.8); /* Slight dark blue */
+    margin: 5px 0;
+}
+
+
+/* Hide SMA name when sidebar is closed */
+.sidebar:not(.active) .sma-name {
+    display: none; /* Hide name when sidebar is collapsed */
+}
+
+/* SMA Name */
+.sma-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: white; /* Match theme color */
+    text-transform: uppercase;
+    transition: font-size 0.3s ease, content 0.3s ease; /* Smooth transition */
+}
+
+/* Sidebar Menu Items */
+.sidebar ul {
+    padding: 0;
+    list-style: none;
+    margin-top: 0; /* Adjust spacing below the logo */
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0; /* Even spacing between menu items */
+    height: 50px; /* Consistent height for items */
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    color: white;
+    padding: 10px;
+    width: 100%; /* Full width for easier interaction */
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.sidebar ul li a .nav-item {
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar.active ul li a .nav-item {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Hover Effects for Menu Items */
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align icon and name horizontally */
+    padding: 10px 15px; /* Add padding for spacing */
+    background-color: rgba(0, 0, 50, 0.9); /* Slightly darker background for profile section */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Profile Link */
+.profile a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+
+/* Profile Icon */
+.profile i {
+    font-size: 1.8rem; /* Icon size */
+    color: rgb(3, 232, 249); /* Icon color */
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Profile Name */
+.profile .nav-item {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-transform: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Sidebar collapsed: Hide profile name */
+.sidebar:not(.active) .profile .nav-item {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Hover Effects for Profile */
+.profile:hover {
+    background-color: rgba(0, 0, 70, 1); /* Slightly darker on hover */
+}
+
+.profile:hover i {
+    color: white; /* Highlight icon on hover */
+}
+
+.profile:hover .nav-item {
+    color: white; /* Highlight text on hover */
+}
+
+/* Calendar Section */
+.main-content {
+    flex: 1; /* Take up the remaining space beside the sidebar */
+    background-color: #f5f5f5; /* Match the background color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto; /* Enable scrolling for content overflow */
+    gap: 40px; /* Space between the calendar and the buttons */
+
+}
+.sidebar.active ~ .main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+.main-content {
+    margin-left: 80px; /* Leave space for the collapsed sidebar */
+    flex: 1;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: margin-left 0.5s ease;
+}
+.calendar-buttons-wrapper {
+    display: flex; /* Align calendar and buttons side by side */
+    gap: 40px; /* Space between the calendar and the buttons */
+    align-items: flex-start; /* Align everything to the top */
+}
+
+.sidebar.active ~ .main-content {
+    margin-left: 250px; /* Adjust when the sidebar expands */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Calendar*/
+
+body {
+    display: flex;
+    background: white;
+    min-height: 100vh;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-container {
+    background: #fff;
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.calendar-container header {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header .calendar-navigation {
+    display: flex;
+}
+
+header .calendar-navigation span {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    user-select: none;
+    color: #aeabab;
+    font-size: 1.9rem;
+}
+
+.calendar-navigation span:last-child {
+    margin-right: -10px;
+}
+
+header .calendar-navigation span:hover {
+    background: #f2f2f2;
+}
+
+header .calendar-current-date {
+    font-weight: 500;
+    font-size: 1.45rem;
+}
+
+.calendar-body {
+    padding: 20px;
+}
+
+.calendar-body ul {
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    text-align: center;
+}
+
+.calendar-body .calendar-dates {
+    margin-bottom: 20px;
+}
+
+.calendar-body li {
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+    color: #414141;
+}
+
+.calendar-body .calendar-weekdays li {
+    cursor: default;
+    font-weight: 500;
+}
+
+.calendar-body .calendar-dates li {
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.calendar-dates li.inactive {
+    color: #aaa;
+}
+
+.calendar-dates li.active {
+    color: #fff;
+}
+
+.calendar-dates li::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar-dates li.active::before {
+    background: blue;
+}
+
+.calendar-dates li:not(.active):hover::before {
+    background: #e4e1e1;
+}
+.separator {
+    height: 2px;
+    background-color: #ccc; /* Light gray line */
+    margin: 20px 0; /* Space above and below the line */
+    width: 100%; /* Full width */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.name {
+    margin-bottom: 20px; /* Adjust spacing */
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.calendar-container {
+    width: 100%;
+    max-width: 500px; /* Adjust based on preference */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+/* Navbar Styles */
+.navbar {
+    position: fixed; /* Ensure it stays at the top */
+    top: 0;
+    left: 80px; /* Align with the collapsed sidebar width */
+    width: calc(100% - 80px); /* Adjust width based on sidebar */
+    height: 60px; /* Set height of the navbar */
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Add horizontal padding */
+    z-index: 1100; /* Ensure it is above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Adjust Navbar for Expanded Sidebar */
+.sidebar.active ~ .navbar {
+    left: 250px; /* Align with expanded sidebar width */
+    width: calc(100% - 250px); /* Adjust width when sidebar expands */
+}
+
+/* Logo Section in Navbar */
+.navbar .logo {
+    display: inline-flex; /* Ensures elements are laid out in a row */
+    align-items: center; /* Align items vertically */
+    gap: 1px; /* Space between the logo and text */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Logo Image */
+.navbar .logo img {
+    display: inline-block; /* Ensures the image stays inline */
+    height: 60px; /* Adjust logo height */
+    width: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align image with text */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any padding */
+}
+
+/* Text Next to Logo */
+.navbar h1 .logo  {
+    display: inline-block; /* Ensures the text stays inline with the image */
+    font-size: 1.5rem; /* Adjust text size */
+    font-weight: bold;
+    color: navy; /* Make text visible */
+    margin: 0; /* Remove default margin */
+    line-height: 1; /* Ensure vertical alignment with the image */
+    white-space: nowrap; /* Prevent wrapping to the next line */
+}
+
+/* Right Section: Notification Bell */
+.right-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:  10px;
+}
+
+.right-section i {
+    font-size: 1.8rem; /* Size of the bell */
+    color: navy; /* Color of the bell */
+    cursor: pointer; /* Indicate interactivity */
+    transition: transform 0.3s ease; /* Add a subtle hover effect */
+}
+
+.right-section i:hover {
+    transform: scale(1.2); /* Enlarge slightly on hover */
+}
+
+/* Calendar Buttons */
+.calendar-buttons {
+    display: flex;
+    justify-content: center; /* Center-align buttons */
+    gap: 15px; /* Add spacing between buttons */
+    margin: 15px 0; /* Add spacing around buttons */
+}
+
+.calendar-btn {
+    padding: 10px 20px; /* Adjust button size */
+    font-size: 1rem; /* Button font size */
+    font-weight: bold;
+    color: white; /* Button text color */
+    background-color: navy; /* Button background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.calendar-btn:hover {
+    background-color: rgb(52, 25, 255); /* Lighter blue on hover */
+}
+.subscription-entry {
+    font-size: 0.9rem;
+    background-color: #f0f8ff;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+/* Calendar Subscription Entries */
+.subscription-entry {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Service Logo */
+.subscription-entry img {
+    height: 30px;
+    width: auto;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Selected Subscription Styling */
+.subscription-entry.selected {
+    border-color: #007bff;
+    background-color: #e7f3ff;
+}
+/* mini cards*/
+
+
+
