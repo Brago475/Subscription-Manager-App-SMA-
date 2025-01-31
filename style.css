@@ -4,23 +4,23 @@
     font-family: 'Times New Roman', Times, serif;
 }
 .sidebar {
-    position: fixed; /* Make the sidebar fixed to the viewport */
+    position: fixed; 
     top: 0;
     left: 0;
-    height: 100vh; /* Full height of the viewport */
-    width: 80px; /* Default width when closed */
+    height: 100vh; 
+    width: 80px; 
     background-color: navy;
     padding: 10px 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: width 0.5s ease;
-    overflow: hidden; /* Prevent content overflow */
-    z-index: 1000; /* Ensure the sidebar stays above other elements */
+    overflow: hidden; 
+    z-index: 1000; 
 }
 
 .sidebar.active {
-    width: 250px; /* Expanded width */
+    width: 250px; 
 }
 
 /* Logo Section */
@@ -43,46 +43,45 @@
 .separator {
     width: 100%;
     height: 2px;
-    background-color: rgba(0, 0, 100, 0.8); /* Slight dark blue */
+    background-color: rgba(0, 0, 100, 0.8); 
     margin: 5px 0;
 }
 
 
 /* Hide SMA name when sidebar is closed */
 .sidebar:not(.active) .sma-name {
-    display: none; /* Hide name when sidebar is collapsed */
-}
+    display: none; 
 
 /* SMA Name */
 .sma-name {
     font-size: 14px;
     font-weight: bold;
-    color: white; /* Match theme color */
+    color: white; 
     text-transform: uppercase;
-    transition: font-size 0.3s ease, content 0.3s ease; /* Smooth transition */
+    transition: font-size 0.3s ease, content 0.3s ease; 
 }
 
 /* Sidebar Menu Items */
 .sidebar ul {
     padding: 0;
     list-style: none;
-    margin-top: 0; /* Adjust spacing below the logo */
+    margin-top: 0; 
 }
 
 .sidebar ul li {
     display: flex;
     align-items: center;
-    margin: 10px 0; /* Even spacing between menu items */
-    height: 50px; /* Consistent height for items */
+    margin: 10px 0; 
+    height: 50px; 
 }
 
 .sidebar ul li a {
     display: flex;
     align-items: center;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none; 
     color: white;
     padding: 10px;
-    width: 100%; /* Full width for easier interaction */
+    width: 100%; 
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
@@ -110,16 +109,16 @@
 
 /* Hover Effects for Menu Items */
 .sidebar ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+    background-color: rgba(255, 255, 255, 0.1); 
 }
 
 /* Profile Section */
 .profile {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align icon and name horizontally */
-    padding: 10px 15px; /* Add padding for spacing */
-    background-color: rgba(0, 0, 50, 0.9); /* Slightly darker background for profile section */
+    justify-content: flex-start; 
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 50, 0.9); 
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -135,8 +134,8 @@
 
 /* Profile Icon */
 .profile i {
-    font-size: 1.8rem; /* Icon size */
-    color: rgb(3, 232, 249); /* Icon color */
+    font-size: 1.8rem; 
+    color: rgb(3, 232, 249); 
     margin-right: 10px;
     transition: color 0.3s ease;
 }
@@ -158,39 +157,36 @@
     pointer-events: none;
 }
 
-/* Hover Effects for Profile */
 .profile:hover {
-    background-color: rgba(0, 0, 70, 1); /* Slightly darker on hover */
-}
+    background-color: rgba(0, 0, 70, 1); 
 
 .profile:hover i {
-    color: white; /* Highlight icon on hover */
+    color: white; 
 }
 
 .profile:hover .nav-item {
-    color: white; /* Highlight text on hover */
+    color: white; 
 }
 
 /* Calendar Section */
 .main-content {
-    flex: 1; /* Take up the remaining space beside the sidebar */
-    background-color: #f5f5f5; /* Match the background color */
+    flex: 1; 
+    background-color: #f5f5f5; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    overflow-y: auto; /* Enable scrolling for content overflow */
-    gap: 40px; /* Space between the calendar and the buttons */
+    overflow-y: auto; 
+    gap: 40px; 
 
 }
 .sidebar.active ~ .main-content {
     left: 250px;
     width: calc(100% - 250px);
 }
-/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
 .main-content {
-    margin-left: 80px; /* Leave space for the collapsed sidebar */
+    margin-left: 80px;
     flex: 1;
     background-color: #f5f5f5;
     display: flex;
@@ -201,13 +197,13 @@
     transition: margin-left 0.5s ease;
 }
 .calendar-buttons-wrapper {
-    display: flex; /* Align calendar and buttons side by side */
-    gap: 40px; /* Space between the calendar and the buttons */
-    align-items: flex-start; /* Align everything to the top */
+    display: flex;
+    gap: 40px; 
+    align-items: flex-start; 
 }
 
 .sidebar.active ~ .main-content {
-    margin-left: 250px; /* Adjust when the sidebar expands */
+    margin-left: 250px;
 }
 
 
@@ -334,9 +330,9 @@ header .calendar-current-date {
 }
 .separator {
     height: 2px;
-    background-color: #ccc; /* Light gray line */
-    margin: 20px 0; /* Space above and below the line */
-    width: 100%; /* Full width */
+    background-color: #ccc; 
+    margin: 20px 0;
+    width: 100%; 
 }
 
 .container {
@@ -344,7 +340,7 @@ header .calendar-current-date {
     flex-direction: column;
 }
 .name {
-    margin-bottom: 20px; /* Adjust spacing */
+    margin-bottom: 20px; 
 }
 
 h1 {
@@ -354,59 +350,56 @@ h1 {
 
 .calendar-container {
     width: 100%;
-    max-width: 500px; /* Adjust based on preference */
+    max-width: 500px;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
 }
 /* Navbar Styles */
 .navbar {
-    position: fixed; /* Ensure it stays at the top */
+    position: fixed; 
     top: 0;
-    left: 80px; /* Align with the collapsed sidebar width */
-    width: calc(100% - 80px); /* Adjust width based on sidebar */
-    height: 60px; /* Set height of the navbar */
+    left: 80px; 
+    width: calc(100% - 80px);
+    height: 60px;
     display: flex;
     align-items: center;
-    padding: 0 20px; /* Add horizontal padding */
-    z-index: 1100; /* Ensure it is above other elements */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth transition */
+    padding: 0 20px; 
+    z-index: 1100; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease;
 }
 
-/* Adjust Navbar for Expanded Sidebar */
 .sidebar.active ~ .navbar {
-    left: 250px; /* Align with expanded sidebar width */
-    width: calc(100% - 250px); /* Adjust width when sidebar expands */
-}
+    left: 250px; 
+    width: calc(100% - 250px); 
 
-/* Logo Section in Navbar */
 .navbar .logo {
-    display: inline-flex; /* Ensures elements are laid out in a row */
-    align-items: center; /* Align items vertically */
-    gap: 1px; /* Space between the logo and text */
-    white-space: nowrap; /* Prevent text wrapping */
+    display: inline-flex; 
+    align-items: center; 
+    gap: 1px; 
+    white-space: nowrap;
 }
 
 /* Logo Image */
 .navbar .logo img {
-    display: inline-block; /* Ensures the image stays inline */
-    height: 60px; /* Adjust logo height */
-    width: auto; /* Maintain aspect ratio */
-    vertical-align: middle; /* Align image with text */
-    margin: 0; /* Remove any default margins */
-    padding: 0; /* Remove any padding */
+    display: inline-block; 
+    height: 60px; 
+    width: auto; 
+    vertical-align: middle; 
+    margin: 0;
+    padding: 0; 
 }
 
 /* Text Next to Logo */
 .navbar h1 .logo  {
-    display: inline-block; /* Ensures the text stays inline with the image */
-    font-size: 1.5rem; /* Adjust text size */
+    display: inline-block; 
+    font-size: 1.5rem; =
     font-weight: bold;
-    color: navy; /* Make text visible */
-    margin: 0; /* Remove default margin */
-    line-height: 1; /* Ensure vertical alignment with the image */
-    white-space: nowrap; /* Prevent wrapping to the next line */
+    color: navy;
+    margin: 0;
+    line-height: 1; 
+    white-space: nowrap; 
 }
 
 /* Right Section: Notification Bell */
@@ -418,38 +411,38 @@ h1 {
 }
 
 .right-section i {
-    font-size: 1.8rem; /* Size of the bell */
-    color: navy; /* Color of the bell */
-    cursor: pointer; /* Indicate interactivity */
-    transition: transform 0.3s ease; /* Add a subtle hover effect */
+    font-size: 1.8rem; 
+    color: navy; 
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
 }
 
 .right-section i:hover {
-    transform: scale(1.2); /* Enlarge slightly on hover */
+    transform: scale(1.2); 
 }
 
 /* Calendar Buttons */
 .calendar-buttons {
     display: flex;
-    justify-content: center; /* Center-align buttons */
-    gap: 15px; /* Add spacing between buttons */
-    margin: 15px 0; /* Add spacing around buttons */
+    justify-content: center; 
+    gap: 15px; 
+    margin: 15px 0; 
 }
 
 .calendar-btn {
-    padding: 10px 20px; /* Adjust button size */
-    font-size: 1rem; /* Button font size */
+    padding: 10px 20px;
+    font-size: 1rem; 
     font-weight: bold;
-    color: white; /* Button text color */
-    background-color: navy; /* Button background color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Add rounded corners */
+    color: white;
+    background-color: navy; 
+    border: none; 
+    border-radius: 5px; 
     cursor: pointer; 
     transition: background-color 0.3s ease; 
 }
 
 .calendar-btn:hover {
-    background-color: rgb(52, 25, 255); /* Lighter blue on hover */
+    background-color: rgb(52, 25, 255); 
 }
 .subscription-entry {
     font-size: 0.9rem;
@@ -458,7 +451,6 @@ h1 {
     border-radius: 5px;
     margin: 5px 0;
 }
-/* Calendar Subscription Entries */
 .subscription-entry {
     margin: 10px 0;
     padding: 10px;
@@ -473,7 +465,6 @@ h1 {
     gap: 10px;
 }
 
-/* Service Logo */
 .subscription-entry img {
     height: 30px;
     width: auto;
@@ -481,12 +472,11 @@ h1 {
     margin-right: 10px;
 }
 
-/* Selected Subscription Styling */
 .subscription-entry.selected {
     border-color: #007bff;
     background-color: #e7f3ff;
 }
-/* mini cards*/
+
 
 
 
